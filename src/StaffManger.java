@@ -18,6 +18,11 @@ public class StaffManger  {
             staffList) {
            System.out.println(value);
        }
+       for (int i = 0; i < staffList.size(); i++) {
+           if(staffList.get(i) instanceof StaffFullTime){
+               staffFullTimes.add(staffList.get(i)) ;
+           }
+       }
    }
    public void payroll () {
        double total ;
@@ -37,21 +42,21 @@ public class StaffManger  {
    }
    public double averageWage () {
        double averageWage;
-       double total  = 0 ;
+       double totalWage  = 0 ;
        for (int i = 0; i < staffList.size(); i++) {
            if(staffList.get(i) instanceof StaffFullTime){
-               total += ((StaffFullTime) staffList.get(i)).getHardSalary() + ((StaffFullTime) staffList.get(i)).getBonus() -((StaffFullTime) staffList.get(i)).getForfeit() ;
+               totalWage += ((StaffFullTime) staffList.get(i)).getHardSalary() + ((StaffFullTime) staffList.get(i)).getBonus() -((StaffFullTime) staffList.get(i)).getForfeit() ;
 
            }
            if (staffList.get(i) instanceof StaffPartTime) {
-               total += ((StaffPartTime) staffList.get(i)).getWorkingHours() * 100000;
+               totalWage += ((StaffPartTime) staffList.get(i)).getWorkingHours() * 100000;
            }
        }
-       System.out.println("this average wage is :" + total/staffList.size());
-       averageWage = total/staffList.size();
+       averageWage = totalWage/staffList.size();
        return averageWage;
    }
    public void WageOfStaffBetterThanAverageWage () {
+       System.out.println("the average wage is :  " + averageWage());
        double total ;
        for (int i = 0; i < staffList.size(); i++) {
            if(staffList.get(i) instanceof StaffFullTime){
@@ -77,21 +82,10 @@ public class StaffManger  {
 
 
    public void sort1(){
-       for (int i = 0; i < staffList.size(); i++) {
-           if(staffList.get(i) instanceof StaffFullTime){
-               staffFullTimes.add(staffList.get(i)) ;
-           }
-       }
        staffFullTimes.sort(new Comparator<Staff>() {
            @Override
            public int compare(Staff o1, Staff o2) {
-               if (((StaffFullTime)o1).getHardSalary() - ((StaffFullTime) o2).getHardSalary() > 0){
-                   return 1;
-               }
-               if (((StaffFullTime)o1).getHardSalary() - ((StaffFullTime) o2).getHardSalary() < 0){
-                   return -1 ;
-               }
-               return 0;
+               return Double.compare(((StaffFullTime)o1).getHardSalary(),((StaffFullTime)o2).getHardSalary());
            }
        });
    }
@@ -102,4 +96,7 @@ public class StaffManger  {
                 "staffList=" + staffList +
                 '}';
     }
+
+
+
 }

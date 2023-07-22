@@ -9,40 +9,17 @@ public class StaffFullTime extends Staff {
                 this.forfeit = forfeit;
                 this.hardSalary = hardSalary;
         }
-
-        public StaffFullTime(double bonus, double forfeit, double hardSalary) {
-                this.bonus = bonus;
-                this.forfeit = forfeit;
-                this.hardSalary = hardSalary;
-        }
-
-        public StaffFullTime() {
-        }
-
         public double getBonus() {
                 return bonus;
         }
-
-        public void setBonus(double bonus) {
-                this.bonus = bonus;
-        }
-
         public double getForfeit() {
                 return forfeit;
         }
 
-        public void setForfeit(double forfeit) {
-                this.forfeit = forfeit;
-        }
 
         public double getHardSalary() {
                 return hardSalary;
         }
-
-        public void setHardSalary(double hardSalary) {
-                this.hardSalary = hardSalary;
-        }
-
         @Override
         public String toString() {
                 return "StaffFullTime{" +"id=" + getId() +

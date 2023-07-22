@@ -1,10 +1,10 @@
-import java.util.Collections;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-            StaffManger staffManger = new StaffManger();
-            staffManger.showList();
+        StaffManger staffManger = new StaffManger();
+        staffManger.showList();
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("input choice");
@@ -15,24 +15,24 @@ public class Main {
             System.out.println("Enter 5 to sort full-time employees by salary ascending.");
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
-                case 1 :
+                case 1:
                     staffManger.payroll();
                     break;
-                case 2 :
-                    staffManger.averageWage();
+                case 2:
+                    System.out.println("the average wage is :  " + staffManger.averageWage());
                     break;
-                case 3 :
+                case 3:
                     staffManger.WageOfStaffBetterThanAverageWage();
                     break;
-                    case 4 :
-                        System.out.println( staffManger.WageOfStaffPartTime() );
+                case 4:
+                    System.out.println(staffManger.WageOfStaffPartTime());
                     break;
-                case 5 :
+                case 5:
                     staffManger.sort1();
                     for (Staff value :
                             staffManger.staffFullTimes) {
                         System.out.println(value);
-                    };
+                    }
                     break;
             }
         }
