@@ -28,7 +28,7 @@ public class Main {
                     System.out.println(staffManger.WageOfStaffPartTime());
                     break;
                 case 5:
-                    staffManger.sort1();
+                    staffManger.sortStaffFullTimes();
                     for (Staff value :
                             staffManger.staffFullTimes) {
                         System.out.println(value);
